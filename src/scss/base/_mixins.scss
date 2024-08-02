@@ -1,0 +1,70 @@
+@use 'variables' as v;
+
+@mixin telefono {
+    @media (min-width: v.$telefono) {
+        @content;
+    }
+}
+@mixin tablet {
+    @media (min-width: v.$tablet) {
+        @content;
+    }
+}
+@mixin desktop {
+    @media (min-width: v.$desktop) {
+        @content;
+    }
+}
+@mixin desktopXL {
+    @media (min-width: v.$desktopXL) {
+        @content;
+    }
+}
+
+@mixin contenedor {
+    width: 95%;
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+@mixin resetear-lista {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+@mixin grid($repeat-columns, $gap: 0) {
+    display: grid;
+    grid-template-columns: repeat($repeat-columns, 1fr);
+    gap: $gap;
+}
+
+@mixin child($number) {
+    &:nth-child(#{$number}) {
+        @content
+    }
+}
+
+@mixin child-impar-par($number) {
+    @if $number == 1 {
+        &:nth-child(odd) {
+            @content
+        }
+    } @else if $number == 2 {
+        &:nth-child(even) {
+            @content
+        }
+    }
+}
+
+@mixin hover() {
+    &:hover {
+        @content
+    }
+}
+
+@mixin contenedor {
+    width: 95%;
+    max-width: 120rem;
+    margin: 0 auto;
+}

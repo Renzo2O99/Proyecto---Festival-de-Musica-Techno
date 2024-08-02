@@ -1,0 +1,66 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as mix;
+
+.header {
+    background-color: v.$verde;
+
+    @include mix.tablet {
+        &.fixed {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            box-shadow: .1rem .2rem .3rem #333;
+        }
+    }
+
+    .contenido-header {
+        padding: 2rem;
+
+        @include mix.tablet {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h1 {
+            font-family: v.$fuente_cursiva;
+            font-style: italic;
+            font-size: 3rem;
+            font-weight: 900;
+            color: v.$blanco;
+            margin-top: 1.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+
+            @include mix.tablet {
+                margin: 0;
+                text-align: left;
+            }
+        }
+    }
+}
+
+.navbar-principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+
+    @include mix.tablet {
+        flex-direction: row;
+    }
+
+    a {
+        color: v.$blanco;
+        transition-property: color;
+        transition: .3s ease-in-out;
+        font-family: v.$fuente_cursiva;
+        font-weight: 900;
+        font-size: 2.5rem;
+
+        &:hover, &.active {
+            color: v.$amarillo;
+        }
+    }
+}

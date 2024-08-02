@@ -1,0 +1,64 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as mix;
+
+.sobre-festival {
+    @include mix.contenedor;
+
+    @include mix.tablet {
+        @include mix.grid(2, 2rem 5rem);
+    }
+
+    
+    .info-festival {
+        @include mix.tablet {
+            grid-column: 1 / 3;
+        }
+
+        @include mix.desktop {
+            grid-column: 2 / 3;
+            margin-top: -26rem;
+        }
+
+        p {
+            margin: .5rem;
+        }
+    }
+}
+
+.contenido-festival {
+    margin-top: 5rem;
+
+    @include mix.tablet {
+        margin-top: 0;
+    }
+
+    h2 {
+        margin-bottom: 2rem;
+        text-align: center;
+        font-size: 5rem;
+        font-family: v.$fuente_cursiva;
+        font-weight: 900;
+
+        @include mix.tablet {
+            padding: 2rem;
+        }
+
+        @include mix.desktop {
+            padding: 0;
+            text-align: left;
+        }
+    }
+
+    .fecha {
+        color: v.$verde;
+        font-weight: 700;
+        text-align: center;
+        font-size: 3rem;
+        font-family: v.$fuente_cursiva;
+        font-weight: 900;
+
+        @include mix.desktop {
+            text-align: left;
+        }
+    }
+}

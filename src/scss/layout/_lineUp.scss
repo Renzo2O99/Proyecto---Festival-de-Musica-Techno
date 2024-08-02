@@ -1,0 +1,82 @@
+@use '../base/variables' as v; 
+@use '../base/mixins' as mix;
+
+.lineup {
+    background-color: v.$rosa;
+
+    h3, .dia {
+        font-family: v.$fuente_cursiva;
+        font-style: italic;
+        font-weight: 900;
+        font-size: 7rem;
+        text-align: center;
+        color: v.$blanco;
+    }
+
+    .dia {
+        font-size: 3rem;
+        text-transform: uppercase;
+    }
+}
+
+.escenarios-contenedor {
+    @include mix.contenedor;
+    @include mix.tablet {
+        @include mix.grid(2, 2rem);
+    }
+}
+
+.escenario {
+    margin-top: 2rem;
+
+    .nombre-escenario {
+        text-align: center;
+        font-size: 3rem;
+        font-style: italic;
+        font-weight: 900;
+        text-transform: uppercase;
+    }
+}
+
+.calendario {
+    @include mix.resetear-lista;
+
+    li {
+        padding: 2.5rem;
+        font-size: 2.5rem;
+        font-family: v.$fuente_cursiva;
+        font-style: italic;
+        font-weight: 900;
+
+        span {
+            font-size: 2rem;
+            font-family: v.$fuente_cursiva;
+            font-style: italic;
+            font-weight: 700;
+        }
+    }
+}
+
+.bg-amarillo {
+    background-color: v.$amarillo;
+
+    li {
+        @include mix.child-impar-par(1) {
+            background-color: lighten(
+                $color: v.$amarillo, $amount: 10%
+            );
+        }
+    }
+}
+
+.bg-verde {
+    background-color: v.$verde;
+
+    li {
+        @include mix.child-impar-par(1) {
+            background-color: lighten(
+                $color: v.$verde, $amount: 10%
+            );
+        }
+    }
+}

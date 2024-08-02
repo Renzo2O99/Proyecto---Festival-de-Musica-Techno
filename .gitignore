@@ -1,0 +1,4 @@
+src/img/
+node_modules/
+*.json
+gulpfile.js
